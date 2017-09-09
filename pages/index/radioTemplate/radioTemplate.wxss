@@ -1,0 +1,33 @@
+.content .recommend .list .item {
+  width: 345rpx;
+  float: left;
+  padding-bottom: 20rpx;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+
+.content .recommend .list .item:nth-child(2n) {
+  margin-left: 20rpx;
+}
+
+.content .recommend .list .item .pic {
+  width: 345rpx;
+  height: 345rpx;
+}
+
+.content .recommend .list .item .cover {
+  position: relative;
+}
+
+.content .recommend .list .item .icon {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 10rpx;
+  bottom: 20rpx;
+}
+
+.content .recommend .list .item text {
+  font-size: 28rpx;
+  /* margin-left: 20rpx; */
+}

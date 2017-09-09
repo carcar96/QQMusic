@@ -1,0 +1,31 @@
+<import src="listTemplate/listTemplate.wxml" />
+<import src="../loadingTemplate/loadingTemplate.wxml" />
+
+<view hidden="{{!loadAnimate}}">
+  <template is="loadingT"></template>
+</view>
+<view hidden="{{loadAnimate}}" class="container" style="color:{{specialColor?'#000':'#fff'}};background-color:{{song.bgColor}}">
+  <view class="cover" style='background-image:url({{song.topinfo.pic_album}})'>
+    <view class="content"  style="background:linear-gradient{{specialColor?'(to bottom, transparent, #e0e0e0 60%,#e0e0e0 100%)':'(to bottom, transparent, rgba(0, 0, 0, 0.9) 65%,#000 100%)'}}">
+      <view class="txt">
+        <view class="left">
+          <view class="top">
+            <text>{{song.topinfo.ListName}}</text>
+          </view>
+          <view class="bottom">
+            <text>{{song.update_time}} </text>
+            <text> 更新</text>
+          </view>
+        </view>
+        <view class="right" style="border-color:{{specialColor?'#000':'#fff'}}">
+          <view class="play" data-idx="0" bindtap="onPlayMusic"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="lists">
+    <block wx:for="{{song.songList}}" wx:key="song" wx:for-item="song">
+      <template is="songlistT" data="{{...song,index:index,special:specialColor}}"></template>
+    </block>
+  </view>
+</view>

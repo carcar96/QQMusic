@@ -1,0 +1,13 @@
+<template name="resultT">
+  <view class="info" data-idx="{{index}}" bindtap="onPlayMusic">
+    <view class="left">
+     <image src="{{songImgUrl+albummid}}.jpg"></image>
+    </view>
+    <view class="right">
+      <text class="title">{{songname}}</text>
+      <view class="total">
+        <text>{{singer[0].name}}</text>
+      </view>
+    </view>
+  </view>
+</template>

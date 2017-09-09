@@ -1,0 +1,6 @@
+<template name="loadingT">
+  <view class="tip">
+    <image src="/images/icon-loading.png"></image>
+    <text>拼命加载中...</text>
+  </view>
+</template>

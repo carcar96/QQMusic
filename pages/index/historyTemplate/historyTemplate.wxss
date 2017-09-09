@@ -1,0 +1,35 @@
+.content .search .searchResult .result .history {
+  display: flex;
+  flex-direction: column;
+}
+
+.content .search .searchResult .result .history .hisList {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx 30rpx;
+  border-top: 1px solid #ededed;
+}
+
+.content .search .searchResult .result .history .hisList .clock {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.content .search .searchResult .result .history .hisList text {
+  flex: auto;
+  padding: 0 30rpx;
+  margin: auto 0;
+}
+
+.content .search .searchResult .result .history .hisList .close {
+  width: 28rpx;
+  height: 28rpx;
+  margin: auto 0;
+}
+
+.content .search .searchResult .result .history .clearHis {
+  text-align: center;
+  color: #47c88a;
+  line-height: 88rpx;
+  font-size: 26rpx;
+}

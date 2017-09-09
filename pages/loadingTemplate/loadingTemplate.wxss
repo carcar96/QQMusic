@@ -1,0 +1,26 @@
+.tip {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #a7a7a7;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.tip image {
+  width: 60rpx;
+  height: 60rpx;
+  animation: rotate 1.5s infinite ease-in-out;
+  margin: 30rpx;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

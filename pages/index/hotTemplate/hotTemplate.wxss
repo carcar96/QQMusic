@@ -1,0 +1,27 @@
+@import "../listenTemplate/listenTemplate.wxss";
+
+.content .recommend .hot .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.content .recommend .list .item .cont {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 8px;
+}
+
+.content .recommend .hot .item .cate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content .recommend .hot .item .author {
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10rpx;
+}

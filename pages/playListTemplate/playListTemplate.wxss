@@ -1,0 +1,173 @@
+
+
+.container .menus.show {
+  animation: slideUp ease-in-out 0.3s both;
+}
+
+.container .menus.hide {
+  animation: slideDown ease-in-out 0.3s both;
+}
+
+@keyframes slideUp {
+  from {
+    bottom: -600rpx;
+  }
+
+  to {
+    bottom: 0rpx;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    bottom: 0rpx;
+  }
+
+  to {
+    bottom: -600rpx;
+  }
+}
+
+.container .menus .title {
+  text-align: center;
+  padding: 20rpx;
+  border-bottom: 1px solid #333;
+}
+
+.container .menus .title .num {
+  color: #777;
+}
+
+.container .menus .songsList .list {
+  margin-left: 30rpx;
+  padding: 20rpx 30rpx 20rpx 0;
+  border-bottom: 1px solid #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container .menus .songsList .list .index {
+  margin-right: 20rpx;
+}
+
+.container .menus .songsList .list .left {
+  max-width: 80%;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.container .menus .songsList .list .left .txt {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.container .menus .songsList .list .songname {
+}
+
+.container .menus .songsList .list .split {
+  font-size: 13px;
+  color: #777;
+  margin: 0 10rpx;
+}
+
+.container .menus .songsList .list .songer {
+  font-size: 13px;
+  color: #777;
+  margin: auto 0;
+}
+
+.container .menus .songsList .list.cur text {
+  color: #31c27c;
+}
+
+.container .menus .songsList .list .right .c {
+  overflow: hidden;
+  width: 16px;
+  height: 13px;
+  margin: 2px 0;
+}
+
+.container .menus .songsList .list .right .c text {
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #31c27c;
+  margin-left: 2px;
+  float: left;
+  border-radius: 1px;
+  position: relative;
+}
+
+.container .menus .songsList .list .right .c .one {
+  animation: t1 0.55s infinite ease-in-out;
+}
+
+.container .menus .songsList .list .right .c .two {
+  animation: t2 0.6s infinite ease-in-out;
+}
+
+.container .menus .songsList .list .right .c .three {
+  animation: t3 0.7s infinite ease-in-out;
+}
+
+.container .menus .songsList .list .right .c .four {
+  animation: t4 0.8s infinite ease-in-out;
+}
+
+@keyframes t1 {
+  0% {
+    top: 10px;
+  }
+
+  50% {
+    top: 7px;
+  }
+
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes t2 {
+  0% {
+    top: 3px;
+  }
+
+  50% {
+    top: 8px;
+  }
+
+  100% {
+    top: 4px;
+  }
+}
+
+@keyframes t3 {
+  0% {
+    top: 4px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  100% {
+    top: 3px;
+  }
+}
+
+@keyframes t4 {
+  0% {
+    top: 6px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  100% {
+    top: 8px;
+  }
+}

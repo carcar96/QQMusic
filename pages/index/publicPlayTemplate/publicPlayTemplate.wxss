@@ -1,0 +1,214 @@
+@import "../../playListTemplate/playListTemplate.wxss";
+
+.container .publicList {
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 30rpx 0 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 6px #ccc;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 2;
+}
+
+.container .publicList .left {
+  margin-right: 28rpx;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+  box-shadow: 0px 0px 6px #999;
+}
+
+.container .publicList .left.move {
+  animation: imgRomate 20s infinite linear;
+}
+
+@keyframes imgRomate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container .publicList .left image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.container .publicList .right {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container .publicList .right .loadbar {
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  margin: 6rpx 0 4rpx 0;
+}
+
+.container .publicList .right .loadbar .loading {
+  height: 100%;
+  background: #31c27c;
+}
+
+.container .publicList .right .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.container .publicList .right .content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Microsoft Yahei";
+  overflow: hidden;
+  flex: auto;
+  margin: auto 20rpx auto 0;
+}
+
+.container .publicList .right .content .songname {
+  font-size: 32rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.container .publicList .right .content .songer {
+  font-size: 26rpx;
+  color: #aaa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.container .publicList .right .control .menu .two,
+.container .publicList .right .control .menu .three {
+  width: 40rpx;
+  height: 4rpx;
+  background: #666;
+  margin-top: 5rpx;
+  display: block;
+}
+
+.container .publicList .right .control .menu .three {
+  margin-top: 8rpx;
+}
+
+.container .publicList .right .control .menu .one {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-left: 5px solid #666;
+  border-bottom: 4px solid transparent;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+}
+
+.container .publicList .right .control .menu .one::after {
+  position: absolute;
+  content: '';
+  width: 12px;
+  height: 2px;
+  background: #666;
+  right: -15px;
+}
+
+.container .publicList .right .control {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.container .publicList .right .control .menu {
+  margin: auto 0;
+}
+
+.container .publicList .right .control .play,
+.container .publicList .right .control .next {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-left: 18px solid #666;
+  border-bottom: 12px solid transparent;
+  border-radius: 4px;
+  margin: auto 50rpx auto 0;
+}
+
+.container .publicList .right .control .pause {
+  position: relative;
+  margin: auto 60rpx auto 0;
+  width: 18px;
+  height: 24px;
+}
+
+.container .publicList .right .control .pause::before,
+.container .publicList .right .control .pause::after {
+  position: absolute;
+  content: '';
+  width: 4px;
+  height: 18px;
+  background: #666;
+  top: 3px;
+}
+
+.container .publicList .right .control .pause::before {
+  left: 8px;
+}
+
+.container .publicList .right .control .pause::after {
+  right: 14px;
+}
+
+.container .publicList .right .control .next {
+  border-top: 10px solid transparent;
+  border-left: 14px solid #666;
+  border-bottom: 10px solid transparent;
+  border-radius: 2px;
+  position: relative;
+}
+
+.container .publicList .right .control .next::after {
+  position: absolute;
+  right: 0;
+  content: '';
+  width: 2px;
+  height: 18px;
+  background: #666;
+  top: -9px;
+}
+
+.container .publicSongList {
+  position: fixed;
+  width: 750rpx;
+  background: #fbfbfb;
+  z-index: 1;
+  box-shadow: 0px 0px 4px #ccc;
+  font-family: 'Arial';
+  padding-bottom: 55px;
+}
+
+.container .publicSongList .contain .songlist {
+  min-height: 400rpx;
+}
+
+.container .contain .title {
+  border-bottom: 1px solid #ddd;
+  font-size: 32rpx;
+}
+
+.container .contain .songsList .list {
+  border-bottom: 1px solid #eee;
+}

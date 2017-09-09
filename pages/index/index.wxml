@@ -1,0 +1,140 @@
+<import src="radioTemplate/radioTemplate.wxml" />
+<import src="hotTemplate/hotTemplate.wxml" />
+<import src="rankTemplate/rankTemplate.wxml" />
+<import src="searchTemplate/searchTemplate.wxml" />
+<import src="historyTemplate/historyTemplate.wxml" />
+<import src="../loadingTemplate/loadingTemplate.wxml" />
+<import src="publicPlayTemplate/publicPlayTemplate.wxml" />
+
+<view class="container">
+  <view class="nav">
+    <text bindtap="navTap" data-navIdx="{{index}}" wx:for="{{navList}}" wx:key="idx" class="{{navCur == index ? 'cur' : ''}}">{{item}}</text>
+  </view>
+  <!--loading动画  -->
+  <view hidden="{{!loadAnimate}}">
+    <template is="loadingT"></template>
+  </view>
+  <!--内容  -->
+  <view class="content" hidden="{{loadAnimate}}">
+    <swiper style="height:{{sHeight-45}}px"  bindchange="onChangeNav" current="{{navCur}}">
+      <swiper-item>
+        <scroll-view scroll-y="true" style="height: 100%">
+          <view class="recommend">
+            <!--carousel-->
+            <view class="carousel">
+              <swiper interval="3000" indicator-dots="true" autoplay="true" circular="true" indicator-color="#aaa" indicator-active-color="#fff">
+                <block wx:for="{{recommend.slider}}" wx:key="slider">
+                  <swiper-item>
+                    <image src="{{item.picUrl}}" class="slide-image" id="item.id" />
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+            <!--radio-->
+            <view class="list">
+              <text class="title">电台</text>
+              <view class="items">
+                <block wx:for="{{recommend.radioList}}" wx:key="radio" wx:for-item="radioList">
+                  <template is="radioT" data="{{...radioList}}" />
+                </block>
+              </view>
+            </view>
+            <view class="list hot">
+              <text class="title">热门歌单</text>
+              <view class="items">
+                <block wx:for="{{recommend.songList}}" wx:key="hot" wx:for-item="songList">
+                  <template is="songT" data="{{...songList}}" />
+                </block>
+              </view>
+            </view>
+            <view class="bottom">
+              <image src="/images/logo_footer.png"></image>
+              <text class="foot">联系电话：0755-86013388</text>
+              <text class="foot">QQ群：55209235</text>
+              <text class="foot">Copyright © 1998 - 2016 Tencent. All Rights Reserved.</text>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y="true" style="height: 100%">
+          <view class="rankings">
+            <block wx:for="{{ranKings.topList}}" wx:key="lis" wx:for-item="list">
+              <template is="rankT" data="{{...list}}"></template>
+            </block>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y="true" style="height: 100%" bindscrolltolower="onScrolltolower">
+          <view class="search">
+            <view class="searchBar">
+              <view class="searchInput">
+                <icon type="search" size="16" color="#d1d1d1" />
+                <input type="text" value="{{val}}" bindinput="onInput" bindfocus="onFocus" focus="{{!cancel}}" bindconfirm="onConfirm" placeholder-class="placeholder" confirm-type="search" placeholder="搜索歌曲、歌单、专辑" />
+                <icon class="clear" bindtap="onClear" hidden="{{!clearVal}}" type="clear" size="18" color="#d1d1d1" />
+              </view>
+              <view class="cancel" bindtap="onCancel" hidden="{{cancel}}"><text>取消</text></view>
+            </view>
+            <view class="searchResult" style="min-height:{{sHeight-45-36}}px">
+              <!--热门搜索 -->
+              <view class="hotSearch" hidden="{{showSearch}}">
+                <text>热门搜索</text>
+                <view class="hotWords">
+                  <text class="mostHot" data-word="{{search.special_key}}" bindtap="onHotSearch">{{search.special_key}}</text>
+                  <block wx:for="{{search.hotkey}}" wx:key="hots" wx:for-item="item">
+                    <text data-word="{{item.k}}" bindtap="onHotSearch">{{item.k}}</text>
+                  </block>
+                </view>
+              </view>
+              <!--搜索-->
+              <view class="result" hidden="{{!showSearch}}">
+                <!--历史搜索-->
+                <view class="history" wx:if="{{historyPanel}}">
+                  <block wx:for="{{historySearch}}" wx:for-item="hist" wx:key="his">
+                    <template is="historyT" data="{{...hist,index}}"></template>
+                  </block>
+                  <view class="clearHis">
+                    <text bindtap="onRemoveAll">清除搜索记录</text>
+                  </view>
+                </view>
+                <!--搜索结果-->
+                <view wx:if="{{searchResultPanel}}">
+                  <view class="info songer" wx:if="{{searchResult.zhida.singerid}}">
+                    <view class="left">
+                      <image src="{{songerImgUrl+searchResult.zhida.singermid}}.jpg"></image>
+                    </view>
+                    <view class="right">
+                      <text class="title" data-id="{{searchResult.zhida.singerid}}">{{searchResult.zhida.singername}}</text>
+                      <view class="total">
+                        <text>单曲：<text class="total_num">{{searchResult.zhida.songnum}}</text></text>
+                        <text>专辑：<text class="total_num">{{searchResult.zhida.albumnum}}</text></text>
+                      </view>
+                    </view>
+                  </view>
+                  <view class="listBox">
+                    <block wx:for="{{searchResult.song.list}}" wx:key="song" wx:for-item="song">
+                      <template is="resultT" data="{{...song,...searchResult.zhida,songImgUrl,index}}"></template>
+                    </block>
+                  </view>
+                  <!--loading动画  -->
+                  <view hidden="{{!searchLoading}}">
+                    <template is="loadingT"></template>
+                  </view>
+                  <!--加载完毕分割线 -->
+                  <view class="over" hidden="{{!over}}">
+                    <text>----------- 数据已加载完毕 -----------</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!--底部播放列表-->
+  <view hidden="{{navCur!==0 || hideBottom}}">
+    <template is="publicPlay" data="{{playImg,playing,playingData,key,menuBtn,position}}"></template>
+  </view>
+</view>

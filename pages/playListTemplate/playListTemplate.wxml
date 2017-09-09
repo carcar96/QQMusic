@@ -1,0 +1,30 @@
+<template name="playListT">
+  <view class="title">
+    <text>{{title}}</text>
+    <text class="num">（{{playingData.length}}首）</text>
+  </view>
+  <view class="songsList">
+    <scroll-view scroll-y="true" style="height:400rpx">
+      <block wx:for="{{playingData}}" wx:key="m">
+        <view class="list {{index==key?'cur':''}}" data-idx="{{index}}" data-collect="{{collectFlag}}" bindtap="onChangeSong">
+          <view class="left">
+            <view class="txt">
+              <text class="index">{{index+1}}.</text>
+              <text class="songname">{{item.songname}} </text>
+              <text class="split">-</text>
+              <text class="songer">{{item.singer[0].name}}</text>
+            </view>
+          </view>
+          <view class="right" hidden="{{!playing||index!=key}}">
+            <view class="c">
+              <text class="one"></text>
+              <text class="two"></text>
+              <text class="three"></text>
+              <text class="four"></text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</template>

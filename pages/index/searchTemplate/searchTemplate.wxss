@@ -1,0 +1,53 @@
+.content .search .result .info {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16rpx;
+}
+
+.content .search .result .info .left {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.content .search .result .listBox .left {
+  width: 80rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content .search .result .info .left image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.content .search .result .songer {
+  padding: 30rpx 16rpx;
+}
+
+.content .search .result .songer .left image {
+  border-radius: 50%;
+}
+
+.content .search .result .info .right {
+  flex: auto;
+  margin-left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content .search .result .info .right .title {
+  font-size: 32rpx;
+}
+
+.content .search .result .info .right .total {
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  color: #808080;
+}
+
+.content .search .result .info .right .total .total_num {
+  margin-right: 20rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,8 @@
+<template name="listenT">
+  <view class="middle">
+    <view class="box hot">
+      <image class="listen" src="/images/icon-listen.png"></image>
+      <text class="num">{{accessnum}}万</text>
+    </view>
+  </view>
+</template>

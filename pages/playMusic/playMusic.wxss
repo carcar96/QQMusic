@@ -1,0 +1,354 @@
+@import "../loadingTemplate/loadingTemplate.wxss";
+@import "../playListTemplate/playListTemplate.wxss";
+
+page {
+  height: 100%;
+  font-family: Arial;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.container .bg {
+  filter: blur(15px);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.container .mask {
+  background: #000;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.container .song_info {
+  height: 160rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.container .song_info .cover {
+  width: 160rpx;
+}
+
+.container .song_info image {
+  width: 100%;
+  height: 100%;
+}
+
+.container .song_info .text {
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 36rpx;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.container .song_info .text text {
+  white-space: nowrap;
+}
+
+.container .song_info .songer {
+  font-size: 28rpx;
+  margin-top: 14rpx;
+}
+
+.container .song_info .icon {
+  width: 90rpx;
+  height: 90rpx;
+  margin: auto;
+}
+
+.container .lyric {
+  width: 100%;
+  height: 50%;
+  position: fixed;
+  top: 50%;
+  margin-top: -350rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.container .lyric .content {
+  height: 100%;
+}
+
+.container .lyric .content view {
+  overflow-x: scroll;
+  padding: 0 10rpx;
+  height: 36px;
+}
+
+.container .lyric text {
+  white-space: nowrap;
+  line-height: 36px;
+}
+
+.container .lyric .cur {
+  color: #31c27c;
+}
+
+.container .control {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  color: #808080;
+  z-index: 2;
+}
+
+.container .control .top {
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+
+.container .control .progress {
+  height: 39px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 40px;
+  font-size: 28rpx;
+}
+
+.container .control .progress .barFather {
+  flex: auto;
+  height: 39px;
+  margin: auto 17px;
+  box-sizing: border-box;
+}
+
+.container .control .progress .loadBar {
+  width: 100%;
+  height: 2px;
+  background: #808080;
+  margin: 19px 0;
+  position: relative;
+}
+
+.container .control .progress .loadBar .loading {
+  position: absolute;
+  height: 100%;
+  background: #31c27c;
+}
+
+.container .control .progress .loadBar .dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  top: -8px;
+}
+
+.container .control .top image {
+  width: 50rpx;
+  height: 42rpx;
+}
+
+.container .control .changeMusic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10rpx 0 30rpx 0;
+}
+
+.container .control .changeMusic .last, .container .control .changeMusic .next {
+  background: #31c27c;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: auto 0;
+  position: relative;
+}
+
+.container .control .changeMusic .play_pause {
+  background: #31c27c;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 40rpx;
+  position: relative;
+}
+
+.container .control .changeMusic .last text {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 12px solid #fff;
+  border-bottom: 10px solid transparent;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.container .control .changeMusic .last text:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: #fff;
+  left: 0;
+  top: -8px;
+}
+
+.container .control .changeMusic .last:active,
+.container .control .changeMusic .next:active {
+  opacity: 0.8;
+}
+
+.container .control .changeMusic .next text {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 12px solid #fff;
+  border-bottom: 10px solid transparent;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -6px;
+  border-radius: 2px;
+}
+
+.container .control .changeMusic .next text::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: #fff;
+  right: 0;
+  top: -8px;
+}
+
+.container .control .changeMusic .play_pause .play {
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-left: 32rpx solid #fff;
+  border-bottom: 20rpx solid transparent;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -18rpx;
+  left: 50%;
+  margin-left: -10rpx;
+  border-radius: 2px;
+}
+
+.container .control .changeMusic .play_pause .pause::after {
+  left: 16px;
+  position: absolute;
+  content: '';
+  width: 5px;
+  height: 20px;
+  background: #fff;
+  top: 15px;
+}
+
+.container .control .changeMusic .play_pause .pause::before {
+  position: absolute;
+  right: 16px;
+  content: '';
+  width: 5px;
+  height: 20px;
+  background: #fff;
+  top: 15px;
+}
+
+.container .control .download text {
+  line-height: 80rpx;
+}
+
+.container .menus {
+  position: fixed;
+  bottom: -600rpx;
+  z-index: 3;
+  color: #fff;
+  font-size: 32rpx;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+}
+
+/* .container .menus {
+  position: fixed;
+  bottom: -600rpx;
+  z-index: 3;
+  color: #fff;
+  font-size: 32rpx;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+}
+
+.container .menus.show {
+  animation: slideUp ease-in-out 0.3s both;
+}
+
+.container .menus.hide {
+  animation: slideDown ease-in-out 0.3s both;
+}
+
+@keyframes slideUp {
+  from {
+    bottom: -600rpx;
+  }
+
+  to {
+    bottom: 0rpx;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    bottom: 0rpx;
+  }
+
+  to {
+    bottom: -600rpx;
+  }
+} */
+
+.container .menus .closeBtn {
+  text-align: center;
+  padding: 26rpx;
+  border-bottom: 1px solid #333;
+}
+
+.container .menus .closeBtn {
+  border-top: 1px solid #333;
+  border-bottom: none;
+}
+

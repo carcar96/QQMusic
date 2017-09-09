@@ -1,0 +1,94 @@
+<import src="../loadingTemplate/loadingTemplate.wxml" />
+<import src="../playListTemplate/playListTemplate.wxml" />
+
+<view hidden="{{!loadAnimate}}">
+  <template is="loadingT"></template>
+</view>
+<view hidden="{{loadAnimate}}" class="container">
+  <!--歌曲信息  -->
+  <view class="song_info">
+    <view class="cover">
+      <image src="{{playImg}}"></image>
+    </view>
+    <view class="text">
+      <text class="songname">{{playingData[key].songname}}</text>
+      <text class="songer">{{playingData[key].singer[0].name}}</text>
+    </view>
+    <view class="icon">
+      <image bindtap="onPlay" src="{{playing?'/images/icon-pause.png':'/images/icon-play.png'}}"></image>
+    </view>
+  </view>
+  <!--歌词  -->
+  <view class="lyric" bindtouchstart="onScrollStart" bindtouchend="onScrollEnd">
+    <scroll-view class="content" hidden="{{scrollView}}" scroll-top="{{krcIdx*36-108}}" scroll-y="true" scroll-with-animation="true">
+      <block wx:for="{{playKrc}}" wx:key="ly">
+        <view class="{{index == krcIdx ? 'cur' : ''}}">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </scroll-view>
+
+    <scroll-view class="content" scroll-top="1000" hidden="{{!scrollView}}" scroll-y="true">
+      <block wx:for="{{playKrc}}" wx:key="ly">
+        <view class="{{index == krcIdx ? 'cur' : ''}}">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!--播放控制  -->
+  <view class="control" wx:if="{{!menuShow}}">
+    <!--icon-->
+    <view class="top">
+      <view class="menu" bindtap="onMunes">
+        <image src="/images/menu.png"></image>
+      </view>
+      <view class="collect" bindtap="onLove">
+        <image src="{{collected?'/images/active_heart.png':'/images/heart.png'}}"></image>
+      </view>
+    </view>
+    <!--进度条-->
+    <view class="progress">
+      <text class="loaded">{{current}}</text>
+      <view class="barFather" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd">
+        <view class="loadBar">
+          <view class="loading" style="width:{{loadWidth}}%"></view>
+          <view class="dot" style="left:calc({{loadWidth}}% - 9px)"></view>
+        </view>
+      </view>
+      <text class="totalTime">{{duration}}</text>
+    </view>
+    <!--切歌-->
+    <view class="changeMusic">
+      <view class="last" bindtap="onLast">
+        <text></text>
+      </view>
+      <view class="play_pause" bindtap="onPlay">
+        <text class="play" wx:if="{{!playing}}"></text>
+        <text class="pause" wx:else></text>
+      </view>
+      <view class="next" bindtap="onNext">
+        <text></text>
+      </view>
+    </view>
+  </view>
+  <!--背景  -->
+  <view class="bg" style="background-image:url({{playImg}})"></view>
+  <view class="mask"></view>
+  <!--menus-->
+  <view class="menus {{addclass}}">
+     <view class="contain">
+      <swiper current="{{curList}}" indicator-dots="true" indicator-color="#666" indicator-active-color="#fff" style="height:480rpx">
+        <swiper-item>
+          <template is="playListT" data="{{playing,playingData,key,title:'播放列表'}}"></template>
+        </swiper-item>
+        <swiper-item>
+          <template is="playListT" data="{{collectFlag:true,playingData:collectList,title:'收藏歌单队列'}}"></template>
+        </swiper-item>        
+      </swiper>
+    </view> 
+    <view class="closeBtn" bindtap="onClose">
+      <text>关闭</text>
+    </view>
+  </view>
+</view>

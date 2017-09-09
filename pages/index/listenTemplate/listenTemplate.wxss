@@ -1,0 +1,33 @@
+.content .list .middle {
+  position: absolute;
+  color: #fff;
+  bottom: 24rpx;
+  left: 6rpx;
+}
+
+.content .list .middle .icon {
+  bottom: 0;
+}
+
+.content .list .middle>.box {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .content .list .middle .hot {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+} */
+
+.content .list .middle .listen {
+  width: 22rpx;
+  height: 22rpx;
+  margin: auto 0 auto 10rpx;
+}
+
+.content .list .middle .box .num {
+  font-family: "Microsoft Yahei";
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,149 @@
+@import "../loadingTemplate/loadingTemplate.wxss";
+
+.container {
+  width: 100%;
+  color: #fff;
+  background: #4d1c34;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .cover {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 750rpx;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.container .cover .content {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9) 65%, #000 100%);
+}
+
+.container .cover .content .c_box {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.container .cover .content .c_box .left {
+  width: 80%;
+}
+
+.container .cover .content .left .top {
+  font-size: 48rpx;
+  overflow-x: scroll;
+}
+
+.container .cover .content .left .top text {
+  white-space: nowrap;
+  position: relative;
+}
+
+.container .cover .content .left .bottom {
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.container .cover .content .right {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.container .cover .content .right .play {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 5rpx auto;
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+}
+
+.container .cover .content .right .play::before {
+  content: "";
+  position: absolute;
+  top: 20rpx;
+  left: 28rpx;
+  height: 0;
+  width: 0;
+  line-height: 999em;
+  overflow: hidden;
+  border-color: transparent transparent transparent currentColor;
+  border-width: 20rpx 32rpx;
+  border-style: solid;
+  border-radius: 2px;
+}
+
+.container .list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  padding: 20rpx 30rpx 20rpx 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.container .list text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.container .list .songname {
+  font-size: 36rpx;
+}
+
+.container .list .songer {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 28rpx;
+  margin-top: 2px;
+}
+
+.container .introduce {
+  text-align: center;
+  padding: 20rpx 24rpx 60rpx 24rpx;
+}
+
+.container .introduce >view {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+}
+
+.container .introduce .lable .cap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container .introduce .lable .cap text {
+  display: block;
+  border: 1px solid #fff;
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+  margin: 20rpx 10rpx;
+}
+
+.container .introduce .title {
+  font-size: 36rpx;
+  margin: 30rpx 0 40rpx 0;
+  font-weight: 300;
+}
+
+.container .introduce .brief .content {
+  text-align: left;
+  line-height: 40rpx;
+  word-wrap: break-word;
+}

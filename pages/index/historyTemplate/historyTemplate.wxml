@@ -1,0 +1,7 @@
+<template name="historyT">
+    <view class="hisList" data-word="{{content}}" bindtap="onHotSearch">
+      <image class="clock" src="/images/clock_ic.png"></image>
+      <text>{{content}}</text>
+      <image class="close" src="/images/close.png" data-idx="{{index}}" bindtap="onRemoveHis"></image>
+    </view>
+</template>

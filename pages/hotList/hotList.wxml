@@ -1,0 +1,46 @@
+<import src="../loadingTemplate/loadingTemplate.wxml" />
+
+<view hidden="{{!loadAnimate}}">
+  <template is="loadingT"></template>
+</view>
+
+<view hidden="{{loadAnimate}}" class="container" style="background-color:{{bgColor}}">
+  <view class="cover" style='background-image:url({{hotList.logo}})'>
+    <view class="content">
+      <view class="c_box">
+        <view class="left">
+          <view class="top">
+            <text>{{hotList.dissname}}</text>
+          </view>
+          <view class="bottom">
+            <text>{{listenNum}} 万人播放 </text>
+            <text> 来自：{{hotList.nick}}</text>
+          </view>
+        </view>
+        <view class="right">
+          <view class="play" data-idx="0" bindtap="onPlayMusic"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{hotList.songlist}}" wx:key="list">
+    <view class="list" data-idx="{{index}}" bindtap="onPlayMusic">
+      <text class="songname">{{item.songname}}</text>
+      <text class="songer">{{item.singer[0].name}} • {{item.albumname}}</text>
+    </view>
+  </block>
+  <view class="introduce">
+    <view class="lable">
+      <text class="title">标签</text>
+      <view class="cap">
+        <block wx:for="{{hotList.tags}}" wx:key="cap">
+          <text data-id="{{item.id}}">{{item.name}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="brief">
+      <text class="title">简介</text>
+      <text class="content">{{hotList.desc}}</text>
+    </view>
+  </view>
+</view>

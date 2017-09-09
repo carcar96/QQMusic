@@ -1,0 +1,11 @@
+<template name="radioT">
+    <view class="item" data-id="{{radioid}}">
+      <view class="cover">
+        <image class="pic" src="{{picUrl}}"></image>
+        <image class="icon" src="/images/icon-play.png"></image>      
+      </view>
+      <view class="cont">
+        <text>{{Ftitle}}</text>
+      </view>
+    </view>
+</template>

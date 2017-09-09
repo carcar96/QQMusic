@@ -1,0 +1,34 @@
+<import src="../../playListTemplate/playListTemplate.wxml" />
+
+<template name="publicPlay">
+  <view class="publicList">
+    <view class="left {{playing?'move':''}}" bindtap="onPlayPage">
+      <image src="{{playImg}}"></image>
+    </view>
+    <view class="right">
+      <view class="loadbar">
+        <view class="loading" style="width:{{position}}%"></view>
+      </view>
+      <view class="bottom">
+        <view class="content">
+          <text class="songname">{{playingData[key].songname}}</text>
+          <text class="songer">{{playingData[key].singer[0].name}}</text>
+        </view>
+        <view class="control">
+          <view class="{{playing?'pause':'play'}}" bindtap="onPlayBtn"></view>
+          <view class="next" bindtap="onNextSong"></view>
+          <view class="menu" bindtap="onMenu">
+            <text class="one"></text>
+            <text class="two"></text>
+            <text class="three"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="publicSongList menus {{menuBtn ? 'show' : 'hide'}}">
+    <view class="contain">
+      <template is="playListT" data="{{playing,playingData,key,title:'播放列表'}}"></template>
+    </view> 
+  </view>
+</template>

@@ -1,0 +1,23 @@
+<import src="../listenTemplate/listenTemplate.wxml" />
+
+<template name="rankT">
+  <view class="list" data-id="{{id}}" bindtap="onTopList">
+    <view class="left">
+      <image src="{{picUrl}}"></image>
+      <template is="listenT" data="{{accessnum:listenCount}}"></template>
+    </view>
+    <view class="right">
+      <text class="cate">{{topTitle}}</text>
+      <block wx:for="{{songList}}" wx:key="songs">
+        <view class="txt">
+          <text class="idx">{{index+1}}</text>
+          <text class="name">{{item.songname}}</text>
+          <text class="singer">- {{item.singername}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="go">
+      <view class="arrow"></view>
+    </view>
+  </view>
+</template>

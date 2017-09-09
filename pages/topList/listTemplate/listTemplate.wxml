@@ -1,0 +1,11 @@
+<template name="songlistT">
+  <view class="list" data-idx="{{index}}" bindtap="onPlayMusic">
+    <view class="left">
+      <text>{{index+1}}</text>
+    </view>
+    <view class="right">
+      <text class="songname">{{data.songname}}</text>
+      <text class="songer" style="color:{{special?'grey':'rgba(255, 255, 255, 0.6)'}}">{{data.singer[0].name}}·{{data.albumname}}</text>
+    </view>
+  </view>
+</template>

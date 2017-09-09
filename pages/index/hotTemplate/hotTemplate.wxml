@@ -1,0 +1,15 @@
+<import src="../listenTemplate/listenTemplate.wxml" />
+
+<template name="songT">
+  <view class="item" data-id="{{id}}" bindtap="onHotSongs">
+    <view class="cover">
+      <image class="pic" src="{{picUrl}}"></image>
+      <image class="icon" src="/images/icon-play.png"></image>      
+      <template is="listenT" data="{{accessnum}}"></template>          
+    </view>
+    <view class="cont">
+      <text class="cate">{{songListDesc}}</text>
+      <text class="author">{{songListAuthor}}</text>
+    </view>
+  </view>
+</template>
